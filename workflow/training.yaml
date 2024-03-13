@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: train-workflow-4
+  name: train-workflow-5
   annotations:
     scenarios.ai.sap.com/description: "Scenario Description"
-    scenarios.ai.sap.com/name: "scenario-name-4"
+    scenarios.ai.sap.com/name: "scenario-name-5"
     executables.ai.sap.com/description: "Training Executable Description"
     executables.ai.sap.com/name: "training-executable-name"
     artifacts.ai.sap.com/traindata.kind: "dataset"
     artifacts.ai.sap.com/mymodel.kind: "model"
   labels:
-    scenarios.ai.sap.com/id: "scenario-id-4" 
-    ai.sap.com/version: "1.4"
+    scenarios.ai.sap.com/id: "scenario-id-5" 
+    ai.sap.com/version: "1.5"
 spec:
   imagePullSecrets:
     - name: insider-docker-registry-secret
