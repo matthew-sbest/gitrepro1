@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: train-workflow-4
+  annotations:
+    scenarios.ai.sap.com/description: "Scenario Description"
+    scenarios.ai.sap.com/name: "scenario-name-4"
+    executables.ai.sap.com/description: "Training Executable Description"
+    executables.ai.sap.com/name: "training-executable-name"
+    artifacts.ai.sap.com/traindata.kind: "dataset"
+    artifacts.ai.sap.com/mymodel.kind: "model"
+  labels:
+    scenarios.ai.sap.com/id: "scenario-id-4" 
+    ai.sap.com/version: "1.4"
+spec:
+  imagePullSecrets:
+    - name: insider-docker-registry-secret
+  entrypoint: mypipeline
+  templates:
+    - name: mypipeline
+      steps:
+      - - name: mypredictor
+          template: mycodeblock1
+    - name: mycodeblock1
+    metadata:
+        labels:
+            ai.sap.com/resourcePlan: train.l
+      inputs:
+        artifacts:
+          - name: traindata
+            path: /app/data/
+      outputs:
+        artifacts:
+          - name: mymodel
+            globalName: mymodel
+            path: /app/model
+            archive:
+              none: {}
+      container:
+        image: "reclaimh2b/product-training:1.0"
+        command: ["/bin/sh", "-c"]
+        args:
+          - "python /app/src/training.py"
