@@ -1,18 +1,18 @@
 apiVersion: ai.sap.com/v1alpha1
 kind: ServingTemplate
 metadata:
-  name: serving-workflow-4
+  name: serving-workflow-5
   annotations:
     scenarios.ai.sap.com/description: "Scenario Description"
-    scenarios.ai.sap.com/name: "scenario-name-4"
+    scenarios.ai.sap.com/name: "scenario-name-5"
     executables.ai.sap.com/description: "Serving Executable Description"
     executables.ai.sap.com/name: "serving-executable-name"
     artifacts.ai.sap.com/servemodel.kind: "model"
     artifacts.ai.sap.com/servemodel.description: "model artifact description" 
   labels:
-    scenarios.ai.sap.com/id: "scenario-id-4"
+    scenarios.ai.sap.com/id: "scenario-id-5"
     executables.ai.sap.com/id: "excutable-id"
-    ai.sap.com/version: "1.4"
+    ai.sap.com/version: "1.5"
 spec:
   inputs:
     artifacts:
